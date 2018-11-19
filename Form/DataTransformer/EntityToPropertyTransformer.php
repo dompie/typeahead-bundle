@@ -12,16 +12,12 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 class EntityToPropertyTransformer implements DataTransformerInterface
 {
-    protected $em;
     protected $className;
     protected $property;
-    protected $unitOfWork;
     protected $accessor;
 
-    public function __construct(EntityManager $em, $class, $property = 'id')
+    public function __construct($class, $property = 'id')
     {
-        $this->em = $em;
-        $this->unitOfWork = $this->em->getUnitOfWork();
         $this->className = $class;
         $this->property = $property;
         $this->accessor = PropertyAccess::createPropertyAccessor();

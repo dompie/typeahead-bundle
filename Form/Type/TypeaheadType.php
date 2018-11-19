@@ -21,14 +21,10 @@ class TypeaheadType extends AbstractType
 {
     public static $initialized = false;
 
-    protected $container;
-    protected $em;
     protected $router;
 
-    public function __construct(Container $container, EntityManager $em, Router $router)
+    public function __construct(Router $router)
     {
-        $this->container = $container;
-        $this->em = $em;
         $this->router = $router;
     }
 
